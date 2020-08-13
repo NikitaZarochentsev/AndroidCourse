@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 arrayTextView.setText("");
                 for (String name : studentList) {
-                    arrayTextView.setText(arrayTextView.getText().toString() + name + "\n");
+                    String lineName = arrayTextView.getText().toString() + name + "\n";
+                    arrayTextView.setText(lineName);
                 }
             }
         });
