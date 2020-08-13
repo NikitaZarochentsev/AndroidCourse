@@ -25,20 +25,27 @@ public class MainActivity extends AppCompatActivity {
         this.studentList = new TreeSet<String>();
         this.inputEditText = findViewById(R.id.editText);
         this.arrayTextView = findViewById(R.id.textView);
+
         Button buttonSaveInArray = findViewById(R.id.buttonSaveInArray);
-    }
+        buttonSaveInArray.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (inputEditText.getText().toString().trim().length() != 0) {
+                    String name = inputEditText.getText().toString();
+                    studentList.add(name);
+                }
+            }
+        });
 
-    public void onClickButtonSaveInArray (View view) {
-        if (this.inputEditText.getText().toString().trim().length() != 0) {
-            String name = this.inputEditText.getText().toString();
-            this.studentList.add(name);
-        }
-    }
-
-    public void onClickOutput(View view) {
-        this.arrayTextView.setText("");
-        for (String name : this.studentList) {
-            this.arrayTextView.setText(this.arrayTextView.getText().toString() + name + "\n");
-        }
+        Button outputButton = findViewById(R.id.buttonOutput);
+        outputButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                arrayTextView.setText("");
+                for (String name : studentList) {
+                    arrayTextView.setText(arrayTextView.getText().toString() + name + "\n");
+                }
+            }
+        });
     }
 }

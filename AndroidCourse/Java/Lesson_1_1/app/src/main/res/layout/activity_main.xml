@@ -21,14 +21,12 @@
         android:text="Сохранить в массив"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        android:onClick="onClickButtonSaveInArray"/>
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <Button
         android:id="@+id/buttonOutput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickOutput"
         android:text="Вывести список"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
