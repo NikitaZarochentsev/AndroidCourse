@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.TreeSet;
 
@@ -33,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
                 if (inputEditText.getText().toString().trim().length() != 0) {
                     String name = inputEditText.getText().toString();
                     studentList.add(name);
+
+                    Toast.makeText(getApplicationContext(), "Имя " + name + " сохранено", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Заполните поле ввода", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -46,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
                     String lineName = arrayTextView.getText().toString() + name + "\n";
                     arrayTextView.setText(lineName);
                 }
+
+                Toast.makeText(
+                        getApplicationContext(),
+                        "Выведено " + Integer.toString(studentList.size()) + " элементов",
+                        Toast.LENGTH_SHORT
+                ).show();
             }
         });
     }
