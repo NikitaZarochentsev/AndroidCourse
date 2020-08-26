@@ -22,10 +22,12 @@
         android:text="@string/textButton"/>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/textTextView"
         android:layout_marginTop="16dp"
-        android:id="@+id/textView"/>
+        android:text="@string/textTextView"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20sp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

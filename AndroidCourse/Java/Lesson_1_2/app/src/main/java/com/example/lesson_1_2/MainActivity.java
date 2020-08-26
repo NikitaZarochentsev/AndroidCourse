@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.textEmpty, Toast.LENGTH_SHORT).show();
                 }
             }
         });
