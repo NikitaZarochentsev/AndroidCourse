@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">Lesson_2</string>
     <string name="poem">
-        Мы недавно от печали,\n
-        Пущин, Пушкин, я, барон,\n
-        По бокалу осушали.\n
-        И Фому прогнали вон.
+        Мы недавно от печали,\nПущин, Пушкин, я, барон,\nПо бокалу осушали.\nИ Фому прогнали вон.
     </string>
+    <string name="textButton">Радость и счастье</string>
 </resources>
