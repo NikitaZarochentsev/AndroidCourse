@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lesson_2</string>
+    <string name="poem">
+        Мы недавно от печали,\n
+        Пущин, Пушкин, я, барон,\n
+        По бокалу осушали.\n
+        И Фому прогнали вон.
+    </string>
+</resources>
