@@ -3,5 +3,6 @@
     <string name="poem">
         Мы недавно от печали,\nПущин, Пушкин, я, барон,\nПо бокалу осушали.\nИ Фому прогнали вон.
     </string>
-    <string name="textButton">Радость и счастье</string>
+    <string name="textButtonMainActivity">Радость и счастье</string>
+    <string name="textButtonSecondActivity">Кнопка 1</string>
 </resources>
