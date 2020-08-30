@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lesson_2</string>
+    <string name="poem">
+        Мы недавно от печали,\nПущин, Пушкин, я, барон,\nПо бокалу осушали.\nИ Фому прогнали вон.
+    </string>
+    <string name="textButtonMainActivity">Радость и счастье</string>
+    <string name="textButtonSecondActivity">Кнопка 1</string>
+</resources>
