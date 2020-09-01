@@ -4,30 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:layout_gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/editTextStudent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="6dp" />
 
     <Button
+        android:id="@+id/buttonShowListOfStudents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:layout_marginLeft="6dp"
         android:layout_marginTop="16dp"
-        android:text="@string/textButton"/>
+        android:layout_marginRight="6dp"
+        android:text="@string/text_button_show_list_of_students" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewListOfStudents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
         android:layout_marginTop="16dp"
-        android:text="@string/textTextView"
+        android:layout_marginRight="6dp"
+        android:text="@string/textView_list_of_students"
         android:textColor="@android:color/background_dark"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

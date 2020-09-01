@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        this.studentList = new TreeSet<String>();
-        this.inputEditText = findViewById(R.id.editText);
-        this.arrayTextView = findViewById(R.id.textView);
+        this.studentList = new TreeSet<>();
+        this.inputEditText = findViewById(R.id.editTextInputStudents);
+        this.arrayTextView = findViewById(R.id.textViewOutput);
 
         Button buttonSaveInArray = findViewById(R.id.buttonSaveInArray);
         buttonSaveInArray.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Lesson_1_1</string>
-    <string name="buttonSaveInArrayText">Сохранить в массив</string>
-    <string name="buttonOutputText">Вывести список</string>
+    <string name="button_save_in_array_text">Сохранить в массив</string>
+    <string name="button_output_text">Вывести список</string>
 </resources>

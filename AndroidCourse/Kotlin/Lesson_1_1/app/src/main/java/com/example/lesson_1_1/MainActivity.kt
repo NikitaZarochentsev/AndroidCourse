@@ -8,35 +8,37 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var studentList: TreeSet<String>
+    private var studentList: TreeSet<String> = TreeSet()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        this.studentList = TreeSet()
+        buttonSaveInArray.setOnClickListener {
+            if (editTextInputStudent.text.toString().trim().isNotEmpty()) {
+                val name = editTextInputStudent.text.toString()
+                studentList.add(name)
 
-        saveInArrayButton.setOnClickListener {
-            if (this.editText.text.toString().trim().isNotEmpty()) {
-                val name = editText.text.toString()
-                this.studentList.add(name)
-
-                Toast.makeText(this, "Имя $name сохранено", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    String.format(getString(R.string.save_student_text), name),
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
-                Toast.makeText(this, "Заполните поле ввода", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.not_save_student_text, Toast.LENGTH_SHORT).show()
             }
         }
 
-        outputButton.setOnClickListener {
-            this.textView.text = ""
+        buttonOutput.setOnClickListener {
+            textViewOutput.text = ""
             for (student in this.studentList) {
-                val newStudentLine = textView.text.toString() + student + "\n"
-                textView.setText(newStudentLine)
+                val newStudentLine = "${textViewOutput.text.toString()}$student\n"
+                textViewOutput.text = newStudentLine
             }
 
             Toast.makeText(
                 this,
-                "Выведено ${this.studentList.size.toString()} элементов",
+                String.format(getString(R.string.output_message_text), studentList.size),
                 Toast.LENGTH_SHORT
             ).show()
         }

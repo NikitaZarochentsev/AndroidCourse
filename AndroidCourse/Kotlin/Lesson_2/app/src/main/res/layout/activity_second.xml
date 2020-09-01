@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".SecondActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/rectangles"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/rectangles"
-        android:id="@+id/imageView"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:layout_width="100dp"
         android:layout_height="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
         android:layout_marginTop="32dp"
         android:background="@drawable/states_button"
-        android:text="@string/textButtonSecondActivity"/>
+        android:text="@string/text_button_SecondActivity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

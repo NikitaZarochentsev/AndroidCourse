@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Lesson_1_2</string>
-    <string name="textButton">Show</string>
-    <string name="textTextView">List of students:\n</string>
-    <string name="textStudentAdded">Student is added</string>
-    <string name="textStudentNotAdded">Student is not added</string>
-    <string name="textEmpty">Empty</string>
+    <string name="text_button_show_list_of_students">Show</string>
+    <string name="textView_list_of_students">List of students:\n</string>
+    <string name="text_student_added">Student is added</string>
+    <string name="text_student_not_added">Student is not added</string>
+    <string name="text_empty">Empty</string>
+    <string name="text_incorrect_input_message">Incorrect data</string>
 </resources>
