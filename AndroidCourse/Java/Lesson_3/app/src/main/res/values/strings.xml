@@ -2,4 +2,5 @@
     <string name="app_name">Lesson_3</string>
     <string name="button_top_text">Верстка построена без ConstraintLayout</string>
     <string name="button_bottom_text">Верстка построена на ConstraintLayout</string>
+    <string name="toolbar_text">Личный профиль</string>
 </resources>
