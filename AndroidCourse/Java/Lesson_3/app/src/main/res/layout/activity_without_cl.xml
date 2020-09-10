@@ -8,20 +8,26 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:id="@+id/toolbar"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:title="@string/toolbar_text"
+        >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/toolbar_text"/>
-        </RelativeLayout>
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:text="@string/toolbar_text"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:gravity="center_vertical"/>&ndash;&gt;-->
+<!--        </RelativeLayout>-->
     </androidx.appcompat.widget.Toolbar>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
