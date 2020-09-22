@@ -3,4 +3,16 @@
     <string name="button_top_text">Верстка построена без ConstraintLayout</string>
     <string name="button_bottom_text">Верстка построена на ConstraintLayout</string>
     <string name="toolbar_text">Личный профиль</string>
+    <string name="textView_title">Личные данные</string>
+    <string name="textView_name">Имя</string>
+    <string name="textView_surname">Фамилия</string>
+    <string name="textView_email">E-mail</string>
+    <string name="textView_login">Логин</string>
+    <string name="textView_region">Ваш регион</string>
+    <string name="button_logout">Выйти из аккаунта</string>
+    <string name="card_text">Карта №7898769\nСпециалист</string>
+    <string name="lorem">aaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\n
+    aaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\n
+    aaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\n
+    aaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\n</string>
 </resources>

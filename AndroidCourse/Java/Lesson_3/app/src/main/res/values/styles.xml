@@ -7,4 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppBar">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ToolBarWithNavigationBack">
+        <item name="navigationIcon">@drawable/ic_arrow_back_24px</item>
+    </style>
+
 </resources>
