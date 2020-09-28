@@ -10,9 +10,16 @@
     <string name="textView_login">Логин</string>
     <string name="textView_region">Ваш регион</string>
     <string name="button_logout">Выйти из аккаунта</string>
-    <string name="card_text">Карта №7898769\nСпециалист</string>
-    <string name="lorem">aaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\n
-    aaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\n
-    aaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\n
-    aaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\naaaaaaaa\n</string>
+    <string name="card_text">Карта №%1$s\nСпециалист</string>
+    <string name="item_edit_text">Редактировать</string>
+
+    <string name="name_default">Анастасия</string>
+    <string name="surname_default">Антонина</string>
+    <string name="email_default">anykee.box@gmail.ru</string>
+    <string name="login_default">HIE023UOI88</string>
+    <string name="region_default">Санкт-Петербург</string>
+    <string name="number_of_card_default">7898769</string>
+
+    <string name="edit_text">Редактировать</string>
+    <string name="logout_text">Выход из аккаунта</string>
 </resources>

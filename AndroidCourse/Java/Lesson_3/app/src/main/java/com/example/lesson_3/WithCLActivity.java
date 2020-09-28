@@ -7,15 +7,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WithoutCLActivity extends AppCompatActivity {
+public class WithCLActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_without_cl);
+        setContentView(R.layout.activity_with_c_l);
 
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
@@ -29,13 +31,7 @@ public class WithoutCLActivity extends AppCompatActivity {
         TextView textViewLogin = findViewById(R.id.textViewLogin);
         textViewLogin.setText(R.string.login_default);
         TextView textViewRegion = findViewById(R.id.textViewRegion);
-        textViewRegion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), getString(R.string.edit_text), Toast.LENGTH_SHORT).show();
-            }
-        });
-        textViewRegion.setText(R.string.region_default);
+        textViewRegion.setText(getString(R.string.region_default));
 
         TextView textViewToolbar = findViewById(R.id.textViewToolbar);
         textViewToolbar.setText(String.format(getString(R.string.card_text), getString(R.string.number_of_card_default)));
@@ -45,6 +41,14 @@ public class WithoutCLActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), getString(R.string.logout_text), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageButton buttonEdit = findViewById(R.id.buttonEdit);
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), getString(R.string.edit_text), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -63,7 +67,7 @@ public class WithoutCLActivity extends AppCompatActivity {
                 return true;
 
             case R.id.item_edit:
-                Toast.makeText(this, getString(R.string.edit_text), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.edit_text, Toast.LENGTH_SHORT).show();
                 return true;
         }
 

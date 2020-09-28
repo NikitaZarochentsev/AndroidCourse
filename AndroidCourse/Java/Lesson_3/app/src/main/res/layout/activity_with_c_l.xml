@@ -45,27 +45,32 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/textViewMainHeader"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="12dp"
                 android:text="@string/textView_title"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/textViewNameHeader"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_name" />
+                android:text="@string/textView_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMainHeader" />
 
             <TextView
                 android:id="@+id/textViewName"
@@ -73,15 +78,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@string/textView_name" />
+                android:text="@string/textView_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNameHeader" />
 
             <TextView
+                android:id="@+id/textViewSurnameHeader"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_surname" />
+                android:text="@string/textView_surname"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewName" />
 
             <TextView
                 android:id="@+id/textViewSurname"
@@ -89,15 +99,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@string/textView_surname" />
+                android:text="@string/textView_surname"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSurnameHeader" />
 
             <TextView
+                android:id="@+id/textViewEmailHeader"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_email" />
+                android:text="@string/textView_email"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSurname" />
 
             <TextView
                 android:id="@+id/textViewEmail"
@@ -105,15 +120,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@string/textView_email" />
+                android:text="@string/textView_email"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmailHeader" />
 
             <TextView
+                android:id="@+id/textViewLoginHeader"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_login" />
+                android:text="@string/textView_login"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
 
             <TextView
                 android:id="@+id/textViewLogin"
@@ -121,15 +141,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@string/textView_login" />
+                android:text="@string/textView_login"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLoginHeader" />
 
             <TextView
+                android:id="@+id/textViewRegionHeader"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_region" />
+                android:text="@string/textView_region"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLogin" />
 
             <TextView
                 android:id="@+id/textViewRegion"
@@ -137,10 +162,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="16dp"
-                android:background="?attr/selectableItemBackground"
                 android:text="@string/textView_region"
-                app:drawableEndCompat="@drawable/ic_edit" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRegionHeader" />
 
             <TextView
                 android:id="@+id/buttonLogout"
@@ -153,7 +177,20 @@
                 android:drawablePadding="32dp"
                 android:gravity="center_vertical"
                 android:text="@string/button_logout"
-                app:drawableStartCompat="@android:drawable/ic_menu_set_as" />
-        </LinearLayout>
+                app:drawableStartCompat="@android:drawable/ic_menu_set_as"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRegion" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonEdit"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/buttonLogout"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="16dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
