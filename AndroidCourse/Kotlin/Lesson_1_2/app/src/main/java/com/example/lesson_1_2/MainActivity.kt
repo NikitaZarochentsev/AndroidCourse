@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,8 +16,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        editTextStudent.setOnKeyListener(View.OnKeyListener { view, keyCode, event ->
-            if ((event.action == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+        editTextStudent.setOnEditorActionListener { view, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
                 val inputStr = editTextStudent.text.toString().trim()
                 editTextStudent.setText("")
                 if (inputStr != "") {
@@ -48,8 +50,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            return@OnKeyListener true
-        })
+            true
+        }
 
         buttonShowListOfStudents.setOnClickListener {
             if (studentsHashMap.isNotEmpty()) {
