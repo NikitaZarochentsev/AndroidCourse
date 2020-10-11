@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText editText = findViewById(R.id.editText);
         this.studentsHashMap = new HashMap<>();
-        editText.setOnKeyListener(new View.OnKeyListener() {
+
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
-            public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
-                if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_DONE) {
                     String inputStr = editText.getText().toString().trim();
                     if (!inputStr.equals("")) {
                         String[] parts = inputStr.split(" ");
@@ -39,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, R.string.textStudentAdded, Toast.LENGTH_SHORT).show();
 
                         return true;
-                    }
-                    else {
+                    } else {
                         Toast.makeText(MainActivity.this, R.string.textStudentNotAdded, Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -59,8 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         String outputText = textView.getText().toString() + studentHashMap.getValue().toString() + "\n";
                         textView.setText(outputText);
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(getApplicationContext(), R.string.textEmpty, Toast.LENGTH_SHORT).show();
                 }
             }
