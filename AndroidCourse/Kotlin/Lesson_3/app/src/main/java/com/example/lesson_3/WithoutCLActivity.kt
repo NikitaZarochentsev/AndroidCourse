@@ -21,7 +21,8 @@ class WithoutCLActivity : AppCompatActivity() {
         textViewEmail.setText(R.string.email_default)
         textViewLogin.setText(R.string.login_default)
         textViewRegion.setText(R.string.region_default)
-        textViewRegion.setOnClickListener{
+
+        buttonEdit.setOnClickListener{
             Toast.makeText(this, getString(R.string.edit_text), Toast.LENGTH_SHORT).show()
         }
 

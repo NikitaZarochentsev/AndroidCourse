@@ -30,11 +30,11 @@ class WithCLActivity : AppCompatActivity() {
             )
         )
 
-        buttonLogout.setOnClickListener{
+        buttonLogout.setOnClickListener {
             Toast.makeText(this, getString(R.string.logout_text), Toast.LENGTH_SHORT).show()
         }
 
-        buttonEdit.setOnClickListener{
+        buttonEdit.setOnClickListener {
             Toast.makeText(this, getString(R.string.edit_text), Toast.LENGTH_SHORT).show()
         }
     }
