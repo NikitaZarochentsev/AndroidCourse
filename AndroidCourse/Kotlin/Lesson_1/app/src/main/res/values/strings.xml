@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Lesson_1</string>
+    <string name="activity1_button">Activity 1</string>
+    <string name="activity2_button">Activity 2</string>
+
+    <string name="save_in_array_button_text_act1">Сохранить в массив</string>
+    <string name="output_button_text_act1">Вывести список</string>
+    <string name="success_save_student_text_act1">Имя %s сохранено</string>
+    <string name="empty_editTextInputStudent_text_act1">Заполните поле ввода</string>
+    <string name="output_message_text_act1">Выведено %s элементов</string>
+    <string name="hint_editTextInputStudent_act1">Имя студента</string>
+
+    <string name="show_list_of_students_button_text_act2">Показать</string>
+    <string name="success_student_added_text_act2">Студент добавлен</string>
+    <string name="incorrect_input_message_act2">Некорректный ввод</string>
+    <string name="failure_student_added_text_act2">Студент не добавлен</string>
+    <string name="text_empty">Пусто</string>
+    <string name="hint_editTextInputStudent_act2">Имя Фамилия Класс Год</string>
+    <string name="line_list_of_students_textView_act2">%s%s\n</string>
+</resources>

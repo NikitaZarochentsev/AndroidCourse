@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import kotlinx.android.synthetic.main.activity_with_c_l.*
 import kotlinx.android.synthetic.main.activity_without_c_l.*
 
 class WithoutCLActivity : AppCompatActivity() {
@@ -14,37 +15,45 @@ class WithoutCLActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_without_c_l)
 
-        setSupportActionBar(main_toolbar as? Toolbar)
+        toolbarWithoutCL.inflateMenu(R.menu.menu)
+        toolbarWithoutCL.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
-        textViewName.setText(R.string.name_default)
-        textViewSurname.setText(R.string.surname_default)
-        textViewEmail.setText(R.string.email_default)
-        textViewLogin.setText(R.string.login_default)
-        textViewRegion.setText(R.string.region_default)
+        toolbarWithoutCL.setOnMenuItemClickListener {
+            when (it.itemId) {
+                android.R.id.home -> onBackPressed()
+                R.id.item_edit -> Toast.makeText(
+                    this,
+                    getString(R.string.edit_text),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
-        buttonEdit.setOnClickListener{
+            return@setOnMenuItemClickListener true
+        }
+
+        textViewNameWithoutCL.setText(R.string.name_default)
+        textViewSurnameWithoutCL.setText(R.string.surname_default)
+        textViewEmailWithoutCL.setText(R.string.email_default)
+        textViewLoginWithoutCL.setText(R.string.login_default)
+        textViewRegionWithoutCL.setText(R.string.region_default)
+
+        (textViewNumberCardWithoutCL)?.setText(
+            String.format(
+                getString(R.string.textView_numberCard), getString(R.string.number_of_card_default)
+            )
+        )
+
+        buttonEditWithoutCL.setOnClickListener{
             Toast.makeText(this, getString(R.string.edit_text), Toast.LENGTH_SHORT).show()
         }
 
-        (textViewToolbar as? TextView)?.setText(String.format(getString(R.string.card_text), getString(R.string.number_of_card_default)))
-
-        buttonLogout.setOnClickListener{
+        buttonLogoutWithoutCL.setOnClickListener{
             Toast.makeText(this, getString(R.string.logout_text), Toast.LENGTH_SHORT).show()
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> onBackPressed()
-            R.id.item_edit -> Toast.makeText(this, getString(R.string.edit_text), Toast.LENGTH_SHORT).show()
+        buttonEditWithoutCL.setOnClickListener {
+            Toast.makeText(this,R.string.edit_text, Toast.LENGTH_SHORT).show()
         }
-
-        return super.onOptionsItemSelected(item)
     }
 }

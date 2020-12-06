@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".Activity1">
+
+    <EditText
+        android:id="@+id/editTextInputStudentAct1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="6dp"
+        android:autofillHints="@string/hint_editTextInputStudent_act1"
+        android:hint="@string/hint_editTextInputStudent_act1"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/buttonSaveInArrayAct1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="6dp"
+        android:text="@string/save_in_array_button_text_act1" />
+
+    <Button
+        android:id="@+id/buttonOutputAct1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="6dp"
+        android:text="@string/output_button_text_act1" />
+
+    <TextView
+        android:id="@+id/textViewOutputAct1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/border"
+        android:padding="6dp"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -11,6 +11,8 @@
     <string name="textView_region">Ваш регион</string>
     <string name="button_logout">Выйти из аккаунта</string>
     <string name="card_text">Карта №%1$s\nСпециалист</string>
+    <string name="textView_numberCard">Карта №%1$s</string>
+    <string name="textView_specialty">Специальность</string>
     <string name="item_edit_text">Редактировать</string>
 
     <string name="name_default">Анастасия</string>
@@ -22,4 +24,6 @@
 
     <string name="edit_text">Редактировать</string>
     <string name="logout_text">Выход из аккаунта</string>
+
+    <string name="desc_appbar_imageView">Иконка</string>
 </resources>

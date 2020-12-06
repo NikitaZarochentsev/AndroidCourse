@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Lesson_1_1</string>
-    <string name="save_in_array_buttonText">Сохранить в массив</string>
-    <string name="output_text_button">Вывести список</string>
-    <string name="save_student_text">Имя %s сохранено</string>
-    <string name="not_save_student_text">Заполните поле ввода</string>
-    <string name="output_message_text">Выведено %s элементов</string>
-</resources>

@@ -1,40 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorWithCL"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/main.appbar"
+        android:id="@+id/appbarLayoutWithCL"
         android:layout_width="match_parent"
-        android:layout_height="180dp">
+        android:layout_height="180dp"
+        android:stateListAnimator="@drawable/appbar_always_elevated">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/main.collapsing"
+            android:id="@+id/collapsingToolbarLayoutWithCL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="6dp"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:titleEnabled="false">
+            app:contentScrim="@color/colorPrimary"
+            app:expandedTitleGravity="top"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:scrimAnimationDuration="1"
+            app:titleEnabled="false"
+            app:toolbarId="@+id/toolbarWithCL">
 
-            <include
-                android:id="@+id/textViewToolbar"
-                layout="@layout/card_layout"
+            <RelativeLayout
+                android:id="@+id/relativeLayoutAppbarWithCL"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal|bottom"
                 android:layout_margin="12dp"
-                android:text="@string/card_text"
-                app:layout_collapseMode="parallax" />
+                android:background="@color/colorCardBackground"
+                app:layout_collapseMode="parallax">
 
-            <include
-                android:id="@+id/main.toolbar"
-                layout="@layout/toolbar_layout"
+                <ImageView
+                    android:id="@+id/imageCardWithCL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="14dp"
+                    android:contentDescription="@string/desc_appbar_imageView"
+                    android:src="@drawable/img_avatar" />
+
+                <TextView
+                    android:id="@+id/textViewNumberCardWithCL"
+                    style="@style/CardTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/imageCardWithCL"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_toEndOf="@+id/imageCardWithCL"
+                    android:text="@string/textView_numberCard" />
+
+                <TextView
+                    android:id="@+id/textViewSpecialtyWithCL"
+                    style="@style/CardTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewNumberCardWithCL"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_toEndOf="@+id/imageCardWithCL"
+                    android:text="@string/textView_specialty" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarWithCL"
+                style="@style/ToolbarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_anchor="@id/main.appbar"
-                app:layout_anchorGravity="top"
                 app:layout_collapseMode="pin"
                 app:title="@string/toolbar_text" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -50,7 +84,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textViewMainHeader"
+                android:id="@+id/textViewMainHeaderWithCL"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,7 +97,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewNameHeader"
+                android:id="@+id/textViewNameHeaderWithCL"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,21 +106,22 @@
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_name"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewMainHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewMainHeaderWithCL" />
 
             <TextView
-                android:id="@+id/textViewName"
+                android:id="@+id/textViewNameWithCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_name"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewNameHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewNameHeaderWithCL" />
 
             <TextView
-                android:id="@+id/textViewSurnameHeader"
+                android:id="@+id/textViewSurnameHeaderWithCL"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,21 +130,22 @@
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_surname"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewNameWithCL" />
 
             <TextView
-                android:id="@+id/textViewSurname"
+                android:id="@+id/textViewSurnameWithCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_surname"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewSurnameHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewSurnameHeaderWithCL" />
 
             <TextView
-                android:id="@+id/textViewEmailHeader"
+                android:id="@+id/textViewEmailHeaderWithCL"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,21 +154,22 @@
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_email"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewSurname" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewSurnameWithCL" />
 
             <TextView
-                android:id="@+id/textViewEmail"
+                android:id="@+id/textViewEmailWithCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_email"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewEmailHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmailHeaderWithCL" />
 
             <TextView
-                android:id="@+id/textViewLoginHeader"
+                android:id="@+id/textViewLoginHeaderWithCL"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -141,21 +178,22 @@
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_login"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmailWithCL" />
 
             <TextView
-                android:id="@+id/textViewLogin"
+                android:id="@+id/textViewLoginWithCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_login"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLoginHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLoginHeaderWithCL" />
 
             <TextView
-                android:id="@+id/textViewRegionHeader"
+                android:id="@+id/textViewRegionHeaderWithCL"
                 style="@style/HeadingStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,21 +202,22 @@
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_region"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLogin" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewLoginWithCL" />
 
             <TextView
-                android:id="@+id/textViewRegion"
+                android:id="@+id/textViewRegionWithCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginEnd="12dp"
                 android:text="@string/textView_region"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRegionHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewRegionHeaderWithCL" />
 
             <TextView
-                android:id="@+id/buttonLogout"
+                android:id="@+id/buttonLogoutWithCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,19 +230,19 @@
                 android:text="@string/button_logout"
                 app:drawableStartCompat="@android:drawable/ic_menu_set_as"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewRegion" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewRegionWithCL" />
 
             <ImageButton
+                android:id="@+id/buttonEditWithCL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonEdit"
-                android:src="@drawable/ic_edit"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/buttonLogout"
-                android:background="?attr/selectableItemBackground"
-                android:layout_marginBottom="32dp"
                 android:layout_marginEnd="16dp"
-                android:padding="6dp"/>
+                android:layout_marginBottom="32dp"
+                android:background="?attr/selectableItemBackground"
+                android:padding="6dp"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toTopOf="@+id/buttonLogoutWithCL"
+                app:layout_constraintRight_toRightOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
