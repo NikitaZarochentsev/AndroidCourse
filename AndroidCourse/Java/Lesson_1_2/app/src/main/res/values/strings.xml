@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Lesson_1_2</string>
-    <string name="textButton">Show</string>
-    <string name="textTextView">List of students:\n</string>
-    <string name="textStudentAdded">Student is added</string>
-    <string name="textStudentNotAdded">Student is not added</string>
-    <string name="textEmpty">Empty</string>
-</resources>
