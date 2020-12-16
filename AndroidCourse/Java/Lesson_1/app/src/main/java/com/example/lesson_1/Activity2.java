@@ -33,16 +33,16 @@ public class Activity2 extends AppCompatActivity {
                 if (!inputStr.equals("")) {
                     String[] parts = inputStr.split(" ");
                     if (parts.length != 4) {
-                        Toast.makeText(Activity2.this, R.string.incorrect_input_message_act2, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Activity2.this, R.string.incorrect_input_toast_act2, Toast.LENGTH_SHORT).show();
                     } else {
                         int id = (int) System.currentTimeMillis();
                         Student student = new Student(id, parts[0], parts[1], parts[2], Integer.parseInt(parts[3]));
                         studentsHashMap.put(id, student);
 
-                        Toast.makeText(Activity2.this, R.string.success_student_added_text_act2, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Activity2.this, R.string.success_student_added_toast_act2, Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(Activity2.this, R.string.failure_student_added_text_act2, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity2.this, R.string.failure_student_added_toast_act2, Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -57,7 +57,7 @@ public class Activity2 extends AppCompatActivity {
                     textViewListOfStudents.setText(String.format(getString(R.string.line_list_of_students_textView_act2), textViewListOfStudents.getText(), studentHashMap.getValue()));
                 }
             } else {
-                Toast.makeText(Activity2.this, R.string.text_empty, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Activity2.this, R.string.empty_hashMap_toast_act2, Toast.LENGTH_SHORT).show();
             }
 
             hideKeyboardFrom(Activity2.this, buttonShowListOfStudents);

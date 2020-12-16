@@ -32,9 +32,9 @@ public class Activity1 extends AppCompatActivity {
                 studentList.add(name);
                 editTextInputStudent.setText("");
 
-                Toast.makeText(Activity1.this, String.format(getString(R.string.success_save_student_text_act1), name), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Activity1.this, String.format(getString(R.string.success_save_student_toast_act1), name), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(Activity1.this, R.string.empty_editTextInputStudent_text_act1, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Activity1.this, R.string.empty_editTextInputStudent_toast_act1, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -50,7 +50,7 @@ public class Activity1 extends AppCompatActivity {
 
             hideKeyboardFrom(Activity1.this, buttonOutput);
 
-            Toast.makeText(Activity1.this, String.format(getString(R.string.output_message_text_act1), Integer.toString(studentList.size())), Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity1.this, String.format(getString(R.string.output_message_toast_act1), Integer.toString(studentList.size())), Toast.LENGTH_SHORT).show();
         });
     }
 
