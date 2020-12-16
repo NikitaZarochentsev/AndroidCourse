@@ -25,7 +25,7 @@ class Activity2 : AppCompatActivity() {
                     if (parts.size != 4) {
                         Toast.makeText(
                             this,
-                            R.string.incorrect_input_message_act2,
+                            R.string.incorrect_input_toast_act2,
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
@@ -36,14 +36,14 @@ class Activity2 : AppCompatActivity() {
 
                         Toast.makeText(
                             this,
-                            R.string.success_student_added_text_act2,
+                            R.string.success_student_added_toast_act2,
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 } else {
                     Toast.makeText(
                         this,
-                        R.string.failure_student_added_text_act2,
+                        R.string.failure_student_added_toast_act2,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -63,7 +63,7 @@ class Activity2 : AppCompatActivity() {
                     )
                 }
             } else {
-                Toast.makeText(this, R.string.text_empty, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.empty_hashMap_toast_act2, Toast.LENGTH_SHORT).show()
             }
 
             buttonShowListOfStudentsAct2.hideKeyboard()

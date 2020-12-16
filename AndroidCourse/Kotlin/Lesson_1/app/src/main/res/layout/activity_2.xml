@@ -27,7 +27,7 @@
         android:layout_marginLeft="6dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="6dp"
-        android:text="@string/show_list_of_students_button_text_act2" />
+        android:text="@string/show_list_of_students_button_act2" />
 
     <TextView
         android:id="@+id/textViewListOfStudentsAct2"

@@ -24,13 +24,13 @@ class Activity1 : AppCompatActivity() {
 
                 Toast.makeText(
                     this,
-                    String.format(getString(R.string.success_save_student_text_act1), name),
+                    String.format(getString(R.string.success_save_student_toast_act1), name),
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
                 Toast.makeText(
                     this,
-                    R.string.empty_editTextInputStudent_text_act1,
+                    R.string.empty_editTextInputStudent_toast_act1,
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -47,7 +47,7 @@ class Activity1 : AppCompatActivity() {
 
             Toast.makeText(
                 this,
-                String.format(getString(R.string.output_message_text_act1), studentList.size),
+                String.format(getString(R.string.output_message_toast_act1), studentList.size),
                 Toast.LENGTH_SHORT
             ).show()
         }
