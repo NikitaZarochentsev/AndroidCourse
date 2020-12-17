@@ -10,11 +10,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonActivity1.setOnClickListener {
+        buttonToAct1Main.setOnClickListener {
             startActivity(Intent(this, Activity1::class.java))
         }
 
-        buttonActivity2.setOnClickListener {
+        buttonToAct2Main.setOnClickListener {
             startActivity(Intent(this, Activity2::class.java))
         }
     }
