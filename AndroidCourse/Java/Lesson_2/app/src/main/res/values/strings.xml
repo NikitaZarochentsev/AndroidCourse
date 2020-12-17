@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Lesson_2</string>
-    <string name="poem">Sorry, there is nothing</string>
-    <string name="textButtonMainActivity">Боль и страдание</string>
-    <string name="textButtonSecondActivity">Кнопка 1</string>
+
+    <string name="poem_textViewPoem_main">Sorry, there is nothing</string>
+    <string name="button_to_secAct_main" translatable="false">Боль и страдание</string>
+    <string name="contentDescriptionImageViewSignMain">Signature of Pushkin</string>
+
+    <string name="button_secAct">Кнопка 1</string>
+    <string name="contentDescriptionImageViewRectanglesSecAct">Red and green rectangles</string>
 </resources>

@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Lesson_2</string>
-    <string name="poem">
+
+    <string name="poem_textViewPoem_main">
         Мы недавно от печали,\nПущин, Пушкин, я, барон,\nПо бокалу осушали.\nИ Фому прогнали вон.
     </string>
-    <string name="textButtonMainActivity">Радость и счастье</string>
-    <string name="textButtonSecondActivity">Кнопка 1</string>
+    <string name="contentDescriptionImageViewSignMain">Подпись Пушкина</string>
+
+    <string name="button_secAct">Кнопка 1</string>
+    <string name="contentDescriptionImageViewRectanglesSecAct">Красный и зелёный прямоугольники</string>
 </resources>
