@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:contentDescription="@string/contentDescriptionImageViewSignMain"
-        android:src="@drawable/image"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image" />
 
     <TextView
         android:id="@+id/textViewPoemMain"
