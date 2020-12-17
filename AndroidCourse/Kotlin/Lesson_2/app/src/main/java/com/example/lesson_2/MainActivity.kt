@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonToSecondActivity.setOnClickListener{
+        buttonToSecondActivityMain.setOnClickListener {
             startActivity(Intent(applicationContext, SecondActivity::class.java))
         }
     }

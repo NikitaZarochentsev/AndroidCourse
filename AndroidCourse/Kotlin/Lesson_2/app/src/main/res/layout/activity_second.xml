@@ -8,10 +8,11 @@
     tools:context=".SecondActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewRectanglesSecAct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangles"
+        android:contentDescription="@string/contentDescriptionImageViewRectanglesSecAct"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -22,9 +23,9 @@
         android:layout_height="30dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/states_button"
-        android:text="@string/text_button_SecondActivity"
+        android:text="@string/button_secAct"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewRectanglesSecAct" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

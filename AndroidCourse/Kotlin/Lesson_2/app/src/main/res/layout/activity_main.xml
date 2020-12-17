@@ -7,35 +7,36 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/imageViewSignMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:contentDescription="@string/contentDescriptionImageViewSignMain"
         android:src="@drawable/image"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewPoem"
+        android:id="@+id/textViewPoemMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/poem"
+        android:text="@string/poem_textViewPoem_main"
         android:textColor="@color/colorText"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewSignMain" />
 
     <Button
-        android:id="@+id/buttonToSecondActivity"
+        android:id="@+id/buttonToSecondActivityMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/text_button_MainActivity"
+        android:text="@string/button_to_secAct_main"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewPoem" />
+        app:layout_constraintTop_toBottomOf="@id/textViewPoemMain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
