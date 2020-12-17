@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/buttonActivity1"
+        android:id="@+id/buttonToAct1Main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="6dp"
@@ -17,7 +17,7 @@
         android:text="@string/activity1_button_text" />
 
     <Button
-        android:id="@+id/buttonActivity2"
+        android:id="@+id/buttonToAct2Main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="6dp"

@@ -13,10 +13,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonActivity1 = findViewById(R.id.buttonActivity1);
-        buttonActivity1.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity1.class)));
+        Button buttonToAct1Main = findViewById(R.id.buttonToAct1Main);
+        buttonToAct1Main.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity1.class)));
 
-        Button buttonActivity2 = findViewById(R.id.buttonActivity2);
-        buttonActivity2.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity2.class)));
+        Button buttonToAct2Main = findViewById(R.id.buttonToAct2Main);
+        buttonToAct2Main.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity2.class)));
     }
 }
