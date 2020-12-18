@@ -20,7 +20,7 @@ class WithCLActivity : AppCompatActivity() {
                 android.R.id.home -> onBackPressed()
                 R.id.item_edit -> Toast.makeText(
                     this,
-                    getString(R.string.edit_text),
+                    getString(R.string.edit_toast),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -35,17 +35,17 @@ class WithCLActivity : AppCompatActivity() {
         textViewRegionWithCL.setText(R.string.region_default)
 
         textViewNumberCardWithCL?.text = String.format(
-            getString(R.string.textView_numberCard), getString(
+            getString(R.string.number_card_textView_appbar), getString(
                 R.string.number_of_card_default
             )
         )
 
         buttonLogoutWithCL.setOnClickListener {
-            Toast.makeText(this, getString(R.string.logout_text), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.logout_toast), Toast.LENGTH_SHORT).show()
         }
 
         buttonEditWithCL.setOnClickListener {
-            Toast.makeText(this, getString(R.string.edit_text), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.edit_toast), Toast.LENGTH_SHORT).show()
         }
     }
 }

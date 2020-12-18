@@ -2,11 +2,7 @@ package com.example.lesson_3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
 import kotlinx.android.synthetic.main.activity_with_c_l.*
 import kotlinx.android.synthetic.main.activity_without_c_l.*
 
@@ -25,7 +21,7 @@ class WithoutCLActivity : AppCompatActivity() {
                 android.R.id.home -> onBackPressed()
                 R.id.item_edit -> Toast.makeText(
                     this,
-                    getString(R.string.edit_text),
+                    getString(R.string.edit_toast),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -41,19 +37,20 @@ class WithoutCLActivity : AppCompatActivity() {
 
         (textViewNumberCardWithoutCL)?.setText(
             String.format(
-                getString(R.string.textView_numberCard), getString(R.string.number_of_card_default)
+                getString(R.string.number_card_textView_appbar),
+                getString(R.string.number_of_card_default)
             )
         )
 
-        buttonEditWithoutCL.setOnClickListener{
-            Toast.makeText(this, getString(R.string.edit_text), Toast.LENGTH_SHORT).show()
+        buttonEditWithoutCL.setOnClickListener {
+            Toast.makeText(this, getString(R.string.edit_toast), Toast.LENGTH_SHORT).show()
         }
 
-        buttonLogoutWithoutCL.setOnClickListener{
-            Toast.makeText(this, getString(R.string.logout_text), Toast.LENGTH_SHORT).show()
+        buttonLogoutWithoutCL.setOnClickListener {
+            Toast.makeText(this, getString(R.string.logout_toast), Toast.LENGTH_SHORT).show()
         }
         buttonEditWithoutCL.setOnClickListener {
-            Toast.makeText(this,R.string.edit_text, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.edit_toast, Toast.LENGTH_SHORT).show()
         }
     }
 }
