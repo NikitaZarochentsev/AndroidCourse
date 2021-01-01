@@ -1,42 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayoutWithoutCL"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/main.appbar"
+        android:id="@+id/appbarLayoutWithoutCL"
         android:layout_width="match_parent"
-        android:layout_height="180dp">
+        android:layout_height="190dp"
+        android:stateListAnimator="@drawable/appbar_always_elevated">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/main.collapsing"
+            android:id="@+id/collapsingToolbarLayoutWithoutCL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="6dp"
+            app:contentScrim="@color/colorPrimary"
+            app:expandedTitleGravity="top"
             app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-            app:titleEnabled="false">
+            app:scrimAnimationDuration="1"
+            app:titleEnabled="false"
+            app:toolbarId="@+id/toolbarWithCL">
 
-            <include
-                android:id="@+id/textViewToolbar"
-                layout="@layout/card_layout"
+            <RelativeLayout
+                android:id="@+id/relativeLayoutAppbarWithoutCL"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal|bottom"
-                android:layout_margin="6dp"
-                android:text="@string/card_text"
-                app:layout_collapseMode="parallax" />
+                android:layout_margin="12dp"
+                android:background="@color/colorCardBackground"
+                app:layout_collapseMode="parallax">
 
-            <include
-                android:id="@+id/main.toolbar"
-                layout="@layout/toolbar_layout"
+                <ImageView
+                    android:id="@+id/imageViewCardWithoutCL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="14dp"
+                    android:src="@drawable/img_avatar"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textViewNumberCardWithoutCL"
+                    style="@style/CardTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/imageViewCardWithoutCL"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_toEndOf="@id/imageViewCardWithoutCL"
+                    android:text="@string/number_card_textView_appbar" />
+
+                <TextView
+                    android:id="@+id/textViewSpecialtyWithoutCL"
+                    style="@style/CardTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewNumberCardWithoutCL"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_toEndOf="@+id/imageViewCardWithoutCL"
+                    android:text="@string/specialty_textView_appbar" />
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarWithoutCL"
+                style="@style/ToolbarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_anchor="@id/main.appbar"
-                app:layout_anchorGravity="top"
                 app:layout_collapseMode="pin"
-                app:title="@string/toolbar_text" />
+                app:title="@string/title_toolbar" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -55,8 +90,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                android:text="@string/textView_title"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/main_header_textView"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
@@ -65,15 +101,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_name" />
+                android:layout_marginEnd="12dp"
+                android:text="@string/name_header_textView" />
 
             <TextView
-                android:id="@+id/textViewName"
+                android:id="@+id/textViewNameWithoutCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@string/textView_name" />
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/name_header_textView" />
 
             <TextView
                 style="@style/HeadingStyle"
@@ -81,15 +120,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_surname" />
+                android:layout_marginEnd="12dp"
+                android:text="@string/surname_header_textView" />
 
             <TextView
-                android:id="@+id/textViewSurname"
+                android:id="@+id/textViewSurnameWithoutCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@string/textView_surname" />
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/surname_header_textView" />
 
             <TextView
                 style="@style/HeadingStyle"
@@ -97,15 +139,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_email" />
+                android:layout_marginEnd="12dp"
+                android:text="@string/email_header_textView" />
 
             <TextView
-                android:id="@+id/textViewEmail"
+                android:id="@+id/textViewEmailWithoutCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@string/textView_email" />
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/email_header_textView" />
 
             <TextView
                 style="@style/HeadingStyle"
@@ -113,46 +158,67 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_login" />
+                android:layout_marginEnd="12dp"
+                android:text="@string/login_header_textView" />
 
             <TextView
-                android:id="@+id/textViewLogin"
+                android:id="@+id/textViewLoginWithoutCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="@string/textView_login" />
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/login_header_textView" />
 
-            <TextView
-                style="@style/HeadingStyle"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/textView_region" />
+                android:layout_marginEnd="12dp">
+
+                <TextView
+                    android:id="@+id/textViewRegionHeaderWithoutCL"
+                    style="@style/HeadingStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/region_header_textView" />
+
+                <TextView
+                    android:id="@+id/textViewRegionWithoutCL"
+                    style="@style/DataTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewRegionHeaderWithoutCL"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/region_header_textView" />
+
+                <ImageButton
+                    android:id="@+id/buttonEditWithoutCL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_edit"
+                    tools:ignore="ContentDescription" />
+            </RelativeLayout>
 
             <TextView
-                android:id="@+id/textViewRegion"
-                style="@style/DataTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="16dp"
-                android:background="?attr/selectableItemBackground"
-                android:text="@string/textView_region"
-                app:drawableEndCompat="@drawable/ic_edit" />
-
-            <TextView
-                android:id="@+id/buttonLogout"
+                android:id="@+id/buttonLogoutWithoutCL"
                 style="@style/DataTextStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="12dp"
                 android:background="?attr/selectableItemBackground"
                 android:drawablePadding="32dp"
                 android:gravity="center_vertical"
-                android:text="@string/button_logout"
+                android:text="@string/logout_button"
                 app:drawableStartCompat="@android:drawable/ic_menu_set_as" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

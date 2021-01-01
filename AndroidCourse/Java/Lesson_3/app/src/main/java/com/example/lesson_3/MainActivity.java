@@ -1,7 +1,6 @@
 package com.example.lesson_3;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonWithoutCL = findViewById(R.id.buttonWithoutCL);
+        Button buttonWithoutCL = findViewById(R.id.buttonToWithoutCLActMain);
         buttonWithoutCL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button buttonWithCL = findViewById(R.id.buttonWithCL);
+        Button buttonWithCL = findViewById(R.id.buttonToWithCLActMain);
         buttonWithCL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

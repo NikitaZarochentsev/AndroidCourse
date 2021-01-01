@@ -10,18 +10,11 @@
     <style name="ToolbarStyle">
         <item name="android:textSize">16sp</item>
         <item name="titleTextColor">@color/colorTextDefault</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?attr/actionBarSize</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="navigationIcon">@drawable/ic_arrow_back_24px</item>
     </style>
 
-    <style name="CardStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">100dp</item>
-        <item name="android:background">@color/colorCardBackground</item>
-        <item name="android:drawablePadding">18dp</item>
-        <item name="android:gravity">center_vertical</item>
+    <style name="CardTextStyle">
         <item name="android:textColor">@color/colorTextDefault</item>
         <item name="android:textSize">16sp</item>
     </style>

@@ -1,17 +1,22 @@
 <resources>
     <string name="app_name">Lesson_3</string>
-    <string name="button_top_text">Верстка построена без ConstraintLayout</string>
-    <string name="button_bottom_text">Верстка построена на ConstraintLayout</string>
-    <string name="toolbar_text">Личный профиль</string>
-    <string name="textView_title">Личные данные</string>
-    <string name="textView_name">Имя</string>
-    <string name="textView_surname">Фамилия</string>
-    <string name="textView_email">E-mail</string>
-    <string name="textView_login">Логин</string>
-    <string name="textView_region">Ваш регион</string>
-    <string name="button_logout">Выйти из аккаунта</string>
-    <string name="card_text">Карта №%1$s\nСпециалист</string>
-    <string name="item_edit_text">Редактировать</string>
+
+    <string name="to_without_CL_act_button_main">Верстка построена без ConstraintLayout</string>
+    <string name="to_with_CL_act_button_main">Верстка построена на ConstraintLayout</string>
+
+    <string name="title_toolbar">Личный профиль</string>
+    <string name="number_card_textView_appbar">Карта №%1$s</string>
+    <string name="specialty_textView_appbar">Специалист</string>
+
+    <string name="edit_item_menu">Редактировать</string>
+
+    <string name="main_header_textView">Личные данные</string>
+    <string name="name_header_textView">Имя</string>
+    <string name="surname_header_textView">Фамилия</string>
+    <string name="email_header_textView">E-mail</string>
+    <string name="login_header_textView">Логин</string>
+    <string name="region_header_textView">Ваш регион</string>
+    <string name="logout_button">Выйти из аккаунта</string>
 
     <string name="name_default">Анастасия</string>
     <string name="surname_default">Антонина</string>
@@ -20,6 +25,6 @@
     <string name="region_default">Санкт-Петербург</string>
     <string name="number_of_card_default">7898769</string>
 
-    <string name="edit_text">Редактировать</string>
-    <string name="logout_text">Выход из аккаунта</string>
+    <string name="edit_toast">Редактировать</string>
+    <string name="logout_toast">Выход из аккаунта</string>
 </resources>
