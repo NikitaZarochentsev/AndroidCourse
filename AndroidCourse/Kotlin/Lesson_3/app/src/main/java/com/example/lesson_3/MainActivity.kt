@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, WithoutCLActivity::class.java))
         }
 
-        buttonToWithActCL.setOnClickListener {
+        buttonToWithCLAct.setOnClickListener {
             startActivity(Intent(this, WithCLActivity::class.java))
         }
     }
