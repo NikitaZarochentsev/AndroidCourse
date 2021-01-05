@@ -13,18 +13,25 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.HeaderViewHolder> {
 
-    private List<String> holderList = new ArrayList<>();
+    private List<String> headerList = new ArrayList<>();
+
+    private List<String> infoList = new ArrayList<>();
 
     class HeaderViewHolder extends RecyclerView.ViewHolder {
-        private TextView holderTextView;
+
+        private TextView headerTextView;
+
+        private TextView infoTextView;
 
         public HeaderViewHolder(View itemView) {
             super(itemView);
-            holderTextView = itemView.findViewById(R.id.headerTextView);
+            headerTextView = itemView.findViewById(R.id.headerTextView);
+            infoTextView = itemView.findViewById(R.id.infoTextView);
         }
 
-        public void bind(String header) {
-            holderTextView.setText(header);
+        public void bind(String header, String info) {
+            headerTextView.setText(header);
+            infoTextView.setText(info);
         }
     }
 
@@ -36,21 +43,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder (HeaderViewHolder holder, int position) {
-        holder.bind(holderList.get(position));
+        holder.bind(headerList.get(position), infoList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return holderList.size();
+        return headerList.size();
     }
 
-    public void setItems(Collection<String> holders) {
-        holderList.addAll(holders);
+    public void setItems(Collection<String> holders, Collection<String> info) {
+        headerList.addAll(holders);
+        infoList.addAll(info);
         notifyDataSetChanged();
     }
 
     public void clearItems() {
-        holderList.clear();
+        headerList.clear();
+        infoList.clear();
         notifyDataSetChanged();
     }
 }

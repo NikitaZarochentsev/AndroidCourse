@@ -12,7 +12,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,8 +43,31 @@ public class MainActivity extends AppCompatActivity {
         RecyclerViewAdapter headerAdapter = new RecyclerViewAdapter();
         recyclerView.setAdapter(headerAdapter);
 
-        Collection<String> headers = Arrays.asList("header1", "header2", "header3");
-        headerAdapter.setItems(headers);
+        Collection<String> headers = Arrays.asList(
+                "Квитанции",
+                "Счетчики",
+                "Рассрочка",
+                "Страхование",
+                "Интернет и ТВ",
+                "Домофон",
+                "Охрана",
+                "Контакты УК и служб",
+                "Мои заявки",
+                "Памятка жителя");
+
+        Collection<String> info = Arrays.asList(
+                "- 40 080,55 Р",
+                "Подайте показания",
+                "Сл. платеж 25.02.2018",
+                "Полис до 12.01.2019",
+                "Баланс 350 Р",
+                "Подключен",
+                "Нет",
+                "",
+                "",
+                "");
+
+        headerAdapter.setItems(headers, info);
     }
 
     private ArrayList<String> fillListOfHeaders() {
