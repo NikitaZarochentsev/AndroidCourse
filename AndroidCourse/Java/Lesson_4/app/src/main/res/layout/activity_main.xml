@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/backgroundColor"
-    android:theme="@style/Theme.Lesson_4"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,4 +19,9 @@
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:title="@string/title_toolbar_main" />
 
-</android.widget.RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
