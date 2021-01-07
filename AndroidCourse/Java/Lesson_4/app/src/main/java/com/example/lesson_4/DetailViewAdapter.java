@@ -1,13 +1,18 @@
 package com.example.lesson_4;
 
+import android.app.Application;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -49,7 +54,6 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
                 if (cardsList.get(getAdapterPosition() + 1).info.equals("")) {
                     if (getAdapterPosition() % 2 == 0) {
                         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                        //params.addRule(RelativeLayout.CENTER_VERTICAL);
                         params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
                         headerTextView.setLayoutParams(params);
                     }
@@ -60,9 +64,14 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
         }
     }
 
+    @NonNull
     @Override
     public DetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_info_item, parent, false);
+        DetailViewHolder holder = new DetailViewHolder(view);
+        holder.itemView.setOnClickListener(view1 -> {
+            Snackbar.make(view, holder.headerTextView.getText(), Snackbar.LENGTH_SHORT).show();
+        });
         return new DetailViewHolder(view);
     }
 
