@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ public class SimpleViewAdapter extends RecyclerView.Adapter<SimpleViewAdapter.Si
             headerTextView.setText(cardInfo.header);
 
             imageView.setImageResource(cardInfo.idImage);
+
+
 
             if (!cardInfo.info.equals("")) {
                 infoTextView.setText(cardInfo.info);

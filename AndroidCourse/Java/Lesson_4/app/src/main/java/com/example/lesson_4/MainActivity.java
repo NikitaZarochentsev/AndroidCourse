@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             emptyPosition--;
         }
 
-        // type 1
         RecyclerView type1RecyclerView = findViewById(R.id.type1RecyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {

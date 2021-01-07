@@ -39,15 +39,23 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
 
             imageView.setImageResource(cardInfo.idImage);
 
-
-            if (!cardInfo.info.equals("")) {
-                infoTextView.setText(cardInfo.info);
-            } else {
+            if (cardInfo.info.equals("")) {
                 infoTextView.setVisibility(View.INVISIBLE);
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 params.addRule(RelativeLayout.CENTER_VERTICAL);
                 params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
                 headerTextView.setLayoutParams(params);
+            } else {
+                if (cardsList.get(getAdapterPosition() + 1).info.equals("")) {
+                    if (getAdapterPosition() % 2 == 0) {
+                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        //params.addRule(RelativeLayout.CENTER_VERTICAL);
+                        params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
+                        headerTextView.setLayoutParams(params);
+                    }
+                }
+
+                infoTextView.setText(cardInfo.info);
             }
         }
     }
