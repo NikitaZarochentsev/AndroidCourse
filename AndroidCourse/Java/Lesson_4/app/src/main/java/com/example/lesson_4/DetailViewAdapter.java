@@ -49,12 +49,14 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 params.addRule(RelativeLayout.CENTER_VERTICAL);
                 params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
+                params.setMarginStart(16);
                 headerTextView.setLayoutParams(params);
             } else {
                 if (cardsList.get(getAdapterPosition() + 1).info.equals("")) {
                     if (getAdapterPosition() % 2 == 0) {
                         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                         params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
+                        params.setMarginStart(16);
                         headerTextView.setLayoutParams(params);
                     }
                 }

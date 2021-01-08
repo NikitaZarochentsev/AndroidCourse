@@ -1,11 +1,8 @@
 package com.example.lesson_4;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -14,7 +11,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             emptyPosition--;
         }
 
-        RecyclerView type1RecyclerView = findViewById(R.id.type1RecyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -66,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 return 2;
             }
         });
-        type1RecyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
         DetailViewAdapter detailViewAdapter = new DetailViewAdapter();
-        type1RecyclerView.setAdapter(detailViewAdapter);
+        recyclerView.setAdapter(detailViewAdapter);
         detailViewAdapter.setItems(cards);
     }
 

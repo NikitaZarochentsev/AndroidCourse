@@ -25,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="24dp"
             android:layout_toRightOf="@+id/imageSimple"
+            android:layout_marginLeft="24dp"
             android:gravity="center_vertical"
             android:text="Header"
             android:textColor="@color/black" />
