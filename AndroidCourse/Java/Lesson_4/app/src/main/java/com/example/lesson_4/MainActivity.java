@@ -2,6 +2,7 @@ package com.example.lesson_4;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         DetailViewAdapter detailViewAdapter = new DetailViewAdapter();
         recyclerView.setAdapter(detailViewAdapter);
         detailViewAdapter.setItems(cards);
+
+        recyclerView.addItemDecoration(new CharacterItemDecoration(24));
     }
 
     ArrayList<CardInfo> fillData() {
@@ -108,8 +111,20 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.ic_applications,
                 R.drawable.ic_memo));
 
+        ArrayList<Boolean> attentions = new ArrayList<Boolean>(Arrays.asList(
+                true,
+                true,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false));
+
         for (int i = 0; i < headers.size(); i++) {
-            data.add(new CardInfo(headers.get(i), info.get(i), images.get(i)));
+            data.add(new CardInfo(headers.get(i), info.get(i), images.get(i), attentions.get(i)));
         }
 
         return data;

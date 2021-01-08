@@ -1,6 +1,8 @@
 package com.example.lesson_4;
 
 import android.app.Application;
+import android.graphics.Color;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -57,8 +60,14 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
                         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                         params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
                         params.setMarginStart(16);
+                        headerTextView.setGravity(Gravity.CENTER_VERTICAL);
+                        infoTextView.setGravity(Gravity.CENTER_VERTICAL);
                         headerTextView.setLayoutParams(params);
                     }
+                }
+
+                if (cardInfo.attention) {
+                    infoTextView.setTextColor(Color.rgb(255, 0, 0));
                 }
 
                 infoTextView.setText(cardInfo.info);
