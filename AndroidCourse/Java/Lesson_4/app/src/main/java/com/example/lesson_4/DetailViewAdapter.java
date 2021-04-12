@@ -36,9 +36,17 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
         public DetailViewHolder(View itemView) {
             super(itemView);
 
-            headerTextView = itemView.findViewById(R.id.headerTextViewDetail);
-            infoTextView = itemView.findViewById(R.id.infoTextViewDetail);
-            imageView = itemView.findViewById(R.id.imageDetail);
+            switch (getItemViewType()){
+                case 0:
+                    headerTextView = itemView.findViewById(R.id.headerTextViewDetail);
+                    infoTextView = itemView.findViewById(R.id.infoTextViewDetail);
+                    imageView = itemView.findViewById(R.id.imageDetail);
+                    break;
+                case 1:
+                    headerTextView = itemView.findViewById(R.id.headerTextViewSimple);
+                    imageView = itemView.findViewById(R.id.imageSimple);
+            }
+
         }
 
         public void bind(CardInfo cardInfo) {
@@ -47,31 +55,53 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
 
             imageView.setImageResource(cardInfo.idImage);
 
-            if (cardInfo.info.equals("")) {
-                infoTextView.setVisibility(View.INVISIBLE);
-                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                params.addRule(RelativeLayout.CENTER_VERTICAL);
-                params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
-                params.setMarginStart(16);
-                headerTextView.setLayoutParams(params);
-            } else {
-                if (cardsList.get(getAdapterPosition() + 1).info.equals("")) {
-                    if (getAdapterPosition() % 2 == 0) {
-                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                        params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
-                        params.setMarginStart(16);
-                        headerTextView.setGravity(Gravity.CENTER_VERTICAL);
-                        infoTextView.setGravity(Gravity.CENTER_VERTICAL);
-                        headerTextView.setLayoutParams(params);
+            switch (getItemViewType()){
+                case 0:
+                    if (cardsList.get(getAdapterPosition() + 1).info.equals("")) {
+                        if (getAdapterPosition() % 2 == 0) {
+                            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
+                            params.setMarginStart(16);
+                            headerTextView.setGravity(Gravity.CENTER_VERTICAL);
+                            infoTextView.setGravity(Gravity.CENTER_VERTICAL);
+                            headerTextView.setLayoutParams(params);
+                        }
                     }
-                }
 
-                if (cardInfo.attention) {
-                    infoTextView.setTextColor(Color.rgb(255, 0, 0));
-                }
+                    if (cardInfo.attention) {
+                        infoTextView.setTextColor(Color.rgb(255, 0, 0));
+                    }
 
-                infoTextView.setText(cardInfo.info);
+                    infoTextView.setText(cardInfo.info);
+                    break;
             }
+
+            // без деления на разные view
+//            if (cardInfo.info.equals("")) {
+//                infoTextView.setVisibility(View.INVISIBLE);
+//                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                params.addRule(RelativeLayout.CENTER_VERTICAL);
+//                params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
+//                params.setMarginStart(16);
+//                headerTextView.setLayoutParams(params);
+//            } else {
+//                if (cardsList.get(getAdapterPosition() + 1).info.equals("")) {
+//                    if (getAdapterPosition() % 2 == 0) {
+//                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                        params.addRule(RelativeLayout.RIGHT_OF, R.id.imageDetail);
+//                        params.setMarginStart(16);
+//                        headerTextView.setGravity(Gravity.CENTER_VERTICAL);
+//                        infoTextView.setGravity(Gravity.CENTER_VERTICAL);
+//                        headerTextView.setLayoutParams(params);
+//                    }
+//                }
+//
+//                if (cardInfo.attention) {
+//                    infoTextView.setTextColor(Color.rgb(255, 0, 0));
+//                }
+//
+//                infoTextView.setText(cardInfo.info);
+//            }
         }
     }
 
@@ -79,9 +109,19 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
     @Override
     public DetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_info_item, parent, false);
+        switch (viewType) {
+            case 0:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_info_item, parent, false);
+                break;
+            case 1:
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_info_item, parent, false);
+        }
+
+        View vieww = view;
+
         DetailViewHolder holder = new DetailViewHolder(view);
         holder.itemView.setOnClickListener(view1 -> {
-            Snackbar.make(view, holder.headerTextView.getText(), Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(vieww, holder.headerTextView.getText(), Snackbar.LENGTH_SHORT).show();
         });
         return new DetailViewHolder(view);
     }
@@ -94,6 +134,15 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
     @Override
     public int getItemCount() {
         return cardsList.size();
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (cardsList.get(position).info.equals("")) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     public void setItems(Collection<CardInfo> cards) {
