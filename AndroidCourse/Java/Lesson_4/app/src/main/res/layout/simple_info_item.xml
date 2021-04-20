@@ -3,10 +3,7 @@
     android:id="@+id/cardViewSimple"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="12dp"
-    android:layout_marginTop="12dp"
-    android:layout_marginEnd="12dp"
-    android:elevation="8dp">
+    android:elevation="3dp">
 
     <RelativeLayout
         android:id="@+id/relativeLayoutCardViewSimple"
@@ -16,27 +13,36 @@
 
         <ImageView
             android:id="@+id/imageSimple"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:src="@drawable/ic_security" />
 
-        <TextView
-            android:id="@+id/headerTextViewSimple"
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_toRightOf="@+id/imageSimple"
-            android:layout_marginLeft="24dp"
-            android:gravity="center_vertical"
-            android:text="Header"
-            android:textColor="@color/black" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/imageSimple"
+            android:layout_centerVertical="true"
+            >
 
-        <TextView
-            android:id="@+id/infoTextViewSimple"
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:layout_below="@id/headerTextViewSimple"
-            android:layout_alignLeft="@id/headerTextViewSimple"
-            android:gravity="center_vertical"
-            android:text="text" />
+            <TextView
+                android:id="@+id/headerTextViewSimple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Header"
+                android:textColor="@color/black"
+                android:textSize="19dp"/>
+
+            <TextView
+                android:id="@+id/infoTextViewSimple"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_below="@id/headerTextViewSimple"
+                android:layout_alignStart="@id/headerTextViewSimple"
+                android:text="text" />
+        </RelativeLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

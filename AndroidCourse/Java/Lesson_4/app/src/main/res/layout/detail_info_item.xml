@@ -29,7 +29,8 @@
             android:gravity="center_vertical"
             android:text="Header"
             android:textColor="@color/black"
-            android:textSize="19dp" />
+            android:textStyle="bold"
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/infoTextViewDetail"
@@ -38,7 +39,7 @@
             android:layout_below="@id/headerTextViewDetail"
             android:layout_alignStart="@id/headerTextViewDetail"
             android:layout_marginTop="6dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="18dp"
             android:gravity="center_vertical"
             android:text="text" />
     </RelativeLayout>
