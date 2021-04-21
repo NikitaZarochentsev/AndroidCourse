@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 return 2;
             }
         });
+
         recyclerView.setLayoutManager(gridLayoutManager);
 
         DetailViewAdapter detailViewAdapter = new DetailViewAdapter();
@@ -71,6 +74,24 @@ public class MainActivity extends AppCompatActivity {
         detailViewAdapter.setItems(cards);
 
         recyclerView.addItemDecoration(new CharacterItemDecoration(24));
+    }
+
+    public class CharacterItemDecoration extends RecyclerView.ItemDecoration {
+        private int offset;
+        public CharacterItemDecoration(int offset) { this.offset = offset;}
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
+
+            if (layoutParams.getSpanIndex() % 2 == 0) {
+
+            } else {
+                outRect.left = offset;
+            }
+
+            outRect.bottom = offset;
+        }
     }
 
     ArrayList<CardInfo> fillData() {
