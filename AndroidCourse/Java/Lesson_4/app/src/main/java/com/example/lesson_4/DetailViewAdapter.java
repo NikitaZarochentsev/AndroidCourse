@@ -116,6 +116,10 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
             holder.infoTextView.setLayoutParams(params);
         }
 
+        if (itemViewType == 0 && cardInfo.attention) {
+            holder.infoTextView.setTextColor(Color.rgb(255, 0, 0));
+        }
+
 
         // реализация из метода bind(CardInfo) класса DetailViewHolder
 //        switch (itemViewType) {

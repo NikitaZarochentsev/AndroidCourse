@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 "Охрана",
                 "Контакты УК и служб",
                 "Мои заявки",
-                "Памятка жителя"));
+                "Памятка жителя A101"));
 
         ArrayList<String> info = new ArrayList<String>(Arrays.asList(
                 "- 40 080,55 Р",
