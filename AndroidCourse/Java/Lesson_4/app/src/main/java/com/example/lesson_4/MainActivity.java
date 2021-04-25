@@ -2,9 +2,7 @@ package com.example.lesson_4;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -40,10 +38,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        ArrayList<CardInfo> cards = fillData();
+        ArrayList<BaseInfoItem> cards = fillData();
         int emptyPosition = -1;
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).info.equals("")) {
+            // поиск начала base элементов
+            if (!(cards.get(i) instanceof DetailInfoItem)) {
                 emptyPosition = i;
                 break;
             }
@@ -94,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    ArrayList<CardInfo> fillData() {
-        ArrayList<CardInfo> data = new ArrayList<CardInfo>();
+    ArrayList<BaseInfoItem> fillData() {
+        ArrayList<BaseInfoItem> data = new ArrayList<BaseInfoItem>();
 
         ArrayList<String> headers = new ArrayList<String>(Arrays.asList(
                 "Квитанции",
@@ -145,8 +144,13 @@ public class MainActivity extends AppCompatActivity {
                 false,
                 false));
 
+        // разделить на detail и base
         for (int i = 0; i < headers.size(); i++) {
-            data.add(new CardInfo(headers.get(i), info.get(i), images.get(i), attentions.get(i)));
+            if (info.get(i) != "") {
+                data.add(new DetailInfoItem(headers.get(i), info.get(i), images.get(i), attentions.get(i)));
+            } else {
+                data.add(new BaseInfoItem(headers.get(i), images.get(i)));
+            }
         }
 
         return data;

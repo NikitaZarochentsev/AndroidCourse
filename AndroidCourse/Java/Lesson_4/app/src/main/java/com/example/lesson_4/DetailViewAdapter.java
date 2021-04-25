@@ -1,18 +1,14 @@
 package com.example.lesson_4;
 
-import android.app.Application;
 import android.graphics.Color;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -21,41 +17,36 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.DetailViewHolder> {
+public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.ViewHolder> {
 
-    private List<CardInfo> cardsList = new ArrayList<>();
+    private List<BaseInfoItem> cardsList = new ArrayList<>();
 
-    class DetailViewHolder extends RecyclerView.ViewHolder {
-
+    class ViewHolder extends RecyclerView.ViewHolder {
         private TextView headerTextView;
-
-        private TextView infoTextView;
 
         private ImageView imageView;
 
-        public DetailViewHolder(View itemView, int itemViewType) {
+        private TextView infoTextView;
+
+        public ViewHolder(View itemView, int itemViewType) {
             super(itemView);
 
-            switch (itemViewType){
-                case 0:
-                    headerTextView = itemView.findViewById(R.id.headerTextViewDetail);
-                    infoTextView = itemView.findViewById(R.id.infoTextViewDetail);
-                    imageView = itemView.findViewById(R.id.imageDetail);
-                    break;
-                case 1:
-                    headerTextView = itemView.findViewById(R.id.headerTextViewSimple);
-                    infoTextView = itemView.findViewById(R.id.infoTextViewSimple);
-                    imageView = itemView.findViewById(R.id.imageSimple);
-                    break;
+            if (itemViewType == 0) {
+                headerTextView = itemView.findViewById(R.id.headerTextViewDetail);
+                imageView = itemView.findViewById(R.id.imageDetail);
+                infoTextView = itemView.findViewById(R.id.infoTextViewDetail);
+            } else {
+                headerTextView = itemView.findViewById(R.id.headerTextViewBase);
+                imageView = itemView.findViewById(R.id.imageBase);
+                infoTextView = itemView.findViewById(R.id.infoTextViewBase);
             }
-
 
         }
     }
 
     @NonNull
     @Override
-    public DetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
 
         switch (viewType) {
@@ -63,18 +54,25 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.detail_info_item, parent, false);
                 break;
             case 1:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_info_item, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.base_info_item, parent, false);
                 break;
             default:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_info_item, parent, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.base_info_item, parent, false);
                 break;
         }
 
-        DetailViewHolder holder = new DetailViewHolder(view, viewType);
+        ViewHolder holder = new ViewHolder(view, viewType);
+        // возможно, если в BaseViewHolder присвоить DetailViewHolder, то метод всё равно вернёт BaseViewHolder
+        // а давай-ка мы это ... проверим!
+
+        // проблема в том, что разные holders должны правильно учитывать разные typeViews
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, holder.headerTextView.getText(), Snackbar.LENGTH_SHORT).show();
+
+                    Snackbar.make(view, holder.headerTextView.getText(), Snackbar.LENGTH_SHORT).show();
+
             }
         });
 
@@ -101,25 +99,35 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
     }
 
     @Override
-    public void onBindViewHolder(DetailViewHolder holder, int position) {
-        CardInfo cardInfo = cardsList.get(position);
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        BaseInfoItem baseInfoItem = cardsList.get(position);
 
-        holder.headerTextView.setText(cardInfo.header);
-        holder.infoTextView.setText(cardInfo.info);
-        holder.imageView.setImageResource(cardInfo.idImage);
+        holder.headerTextView.setText(baseInfoItem.header);
+        holder.imageView.setImageResource(baseInfoItem.idImage);
 
+        // нужно правильно связывать данные с отображением в зависимости от типов данных и ячеек
+        // пока немного запутанно, нужно переделывать
         int itemViewType = getItemViewType(position);
-
-        if (itemViewType == 1 && cardInfo.info.equals("")) {
-            // значит нужна корректировка view (сокрытие поля infoTextView и выравнивание поля headerTextView)
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(0, 0);
-            holder.infoTextView.setLayoutParams(params);
+        if (itemViewType == 0) {
+            // нужно добавить информацию в поле info и при необходимости откорректировать его
+            DetailInfoItem detailInfoItem = (DetailInfoItem) baseInfoItem;
+            holder.infoTextView.setText(detailInfoItem.info);
+            if(detailInfoItem.attention) {
+                holder.infoTextView.setTextColor(Color.rgb(255, 0, 0));
+            }
+        } else {
+            if (baseInfoItem instanceof DetailInfoItem) {
+                DetailInfoItem detailInfoItem = (DetailInfoItem) baseInfoItem;
+                holder.infoTextView.setText(detailInfoItem.info);
+                if(detailInfoItem.attention) {
+                    holder.infoTextView.setTextColor(Color.rgb(255, 0, 0));
+                }
+            } else {
+                // значит нужна корректировка view (сокрытие поля infoTextView и выравнивание поля headerTextView)
+                RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(0, 0);
+                holder.infoTextView.setLayoutParams(params);
+            }
         }
-
-        if (itemViewType == 0 && cardInfo.attention) {
-            holder.infoTextView.setTextColor(Color.rgb(255, 0, 0));
-        }
-
 
         // реализация из метода bind(CardInfo) класса DetailViewHolder
 //        switch (itemViewType) {
@@ -178,10 +186,10 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
 
     @Override
     public int getItemViewType(int position) {
-        CardInfo card = cardsList.get(position);
+        BaseInfoItem card = cardsList.get(position);
 
         // если объект без информации, то это view типа 1
-        if (card.info.equals("")) {
+        if (!(card instanceof DetailInfoItem)) {
             return 1;
         }
 
@@ -195,7 +203,7 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
             }
 
             // иначе если у него есть пара, то это так же view типа 0
-            if (!cardsList.get(position + 1).info.equals("")) {
+            if (cardsList.get(position + 1) instanceof DetailInfoItem) {
                 return 0;
             } else {
                 // иначе - view типа 1
@@ -204,7 +212,7 @@ public class DetailViewAdapter extends RecyclerView.Adapter<DetailViewAdapter.De
         }
     }
 
-    public void setItems(Collection<CardInfo> cards) {
+    public void setItems(Collection<BaseInfoItem> cards) {
         cardsList.addAll(cards);
         notifyDataSetChanged();
     }
