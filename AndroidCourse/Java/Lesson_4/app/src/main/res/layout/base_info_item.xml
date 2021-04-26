@@ -2,8 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cardViewBase"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/relativeLayoutCardViewBase"
@@ -18,31 +17,29 @@
             android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:contentDescription="@null"
             android:src="@drawable/ic_security" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/imageBase"
             android:layout_centerVertical="true"
-            >
+            android:layout_toEndOf="@+id/imageBase">
 
             <TextView
                 android:id="@+id/headerTextViewBase"
+                style="@style/HeaderTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:text="Header"
-                android:textColor="@color/black"
-                android:textSize="19dp"/>
+                android:layout_marginStart="24dp" />
 
             <TextView
                 android:id="@+id/infoTextViewBase"
+                style="@style/InfoTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
                 android:layout_below="@id/headerTextViewBase"
-                android:layout_alignStart="@id/headerTextViewBase"
-                android:text="text" />
+                android:layout_alignStart="@id/headerTextViewBase" />
         </RelativeLayout>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -1,11 +1,13 @@
 package com.example.lesson_4;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +18,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
                 case R.id.item_circle:
-                    CustomDialogFragment dialog = new CustomDialogFragment();
+                    CircleDialogFragment dialog = new CircleDialogFragment();
                     dialog.show(getSupportFragmentManager(), "custom");
                     break;
                 case R.id.item_home:
@@ -39,18 +42,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ArrayList<BaseInfoItem> cards = fillData();
-        int emptyPosition = -1;
-        for (int i = 0; i < cards.size(); i++) {
-            // поиск начала base элементов
-            if (!(cards.get(i) instanceof DetailInfoItem)) {
-                emptyPosition = i;
-                break;
-            }
-        }
-
-        if (emptyPosition % 2 == 1) {
-            emptyPosition--;
-        }
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
@@ -75,17 +66,18 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new CharacterItemDecoration(24));
     }
 
-    public class CharacterItemDecoration extends RecyclerView.ItemDecoration {
-        private int offset;
-        public CharacterItemDecoration(int offset) { this.offset = offset;}
+    public static class CharacterItemDecoration extends RecyclerView.ItemDecoration {
+        private final int offset;
+
+        public CharacterItemDecoration(int offset) {
+            this.offset = offset;
+        }
 
         @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        public void getItemOffsets(@NonNull Rect outRect, View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
             GridLayoutManager.LayoutParams layoutParams = (GridLayoutManager.LayoutParams) view.getLayoutParams();
 
-            if (layoutParams.getSpanIndex() % 2 == 0) {
-
-            } else {
+            if (layoutParams.getSpanIndex() % 2 != 0) {
                 outRect.left = offset;
             }
 
@@ -94,9 +86,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     ArrayList<BaseInfoItem> fillData() {
-        ArrayList<BaseInfoItem> data = new ArrayList<BaseInfoItem>();
+        ArrayList<BaseInfoItem> data = new ArrayList<>();
 
-        ArrayList<String> headers = new ArrayList<String>(Arrays.asList(
+        ArrayList<String> headers = new ArrayList<>(Arrays.asList(
                 "Квитанции",
                 "Счетчики",
                 "Рассрочка",
@@ -108,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 "Мои заявки",
                 "Памятка жителя A101"));
 
-        ArrayList<String> info = new ArrayList<String>(Arrays.asList(
+        ArrayList<String> info = new ArrayList<>(Arrays.asList(
                 "- 40 080,55 Р",
                 "Подайте показания",
                 "Сл. платеж 25.02.2018",
@@ -120,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 "",
                 ""));
 
-        ArrayList<Integer> images = new ArrayList<Integer>(Arrays.asList(
+        ArrayList<Integer> images = new ArrayList<>(Arrays.asList(
                 R.drawable.ic_bill,
                 R.drawable.ic_counter,
                 R.drawable.ic_installment,
@@ -132,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.ic_applications,
                 R.drawable.ic_memo));
 
-        ArrayList<Boolean> attentions = new ArrayList<Boolean>(Arrays.asList(
+        ArrayList<Boolean> attentions = new ArrayList<>(Arrays.asList(
                 true,
                 true,
                 false,
@@ -146,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
         // разделить на detail и base
         for (int i = 0; i < headers.size(); i++) {
-            if (info.get(i) != "") {
+            if (!info.get(i).equals("")) {
                 data.add(new DetailInfoItem(headers.get(i), info.get(i), images.get(i), attentions.get(i)));
             } else {
                 data.add(new BaseInfoItem(headers.get(i), images.get(i)));
