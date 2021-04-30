@@ -2,4 +2,7 @@
     <string name="app_name">Lesson_4</string>
 
     <string name="title_toolbar_main">Моя квартира</string>
+
+    <string name="circle_item_menu">Кружок</string>
+    <string name="home_item_menu">Домик</string>
 </resources>
