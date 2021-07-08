@@ -1,8 +1,12 @@
 package com.example.lesson_4
 
+import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson_4.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.collections.ArrayList
@@ -32,6 +36,42 @@ class MainActivity : AppCompatActivity() {
 
 
         val cards = fillDate()
+
+        val gridLayoutManager = GridLayoutManager(this, 2)
+        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                if (position < 6) {
+                    return 1
+                }
+
+                return 2
+            }
+        }
+
+        binding.recyclerView.layoutManager = gridLayoutManager
+
+        binding.recyclerView.adapter = InfoItemAdapter(cards)
+
+        binding.recyclerView.addItemDecoration(CharacterItemDecoration(24))
+    }
+
+    public class CharacterItemDecoration(val offset : Int) : RecyclerView.ItemDecoration() {
+        override public fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            super.getItemOffsets(outRect, view, parent, state)
+
+            val layoutParams = view.layoutParams as GridLayoutManager.LayoutParams
+
+            if (layoutParams.spanIndex % 2 != 0) {
+                outRect.left = offset
+            }
+
+            outRect.bottom = offset
+        }
     }
 
     private fun fillDate(): ArrayList<BaseInfoItem> {
