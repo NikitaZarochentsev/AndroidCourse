@@ -1,32 +1,32 @@
 package com.example.lesson_4
 
 import android.graphics.Color
-import android.os.Parcelable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.example.lesson_4.databinding.ActivityMainBinding
 import com.example.lesson_4.databinding.BaseInfoItemBinding
 import com.example.lesson_4.databinding.DetailInfoItemBinding
-import org.w3c.dom.Text
-import java.lang.IllegalArgumentException
+import com.google.android.material.snackbar.Snackbar
 
 class InfoItemAdapter(private val cardsList: List<BaseInfoItem>) :
     RecyclerView.Adapter<InfoItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding : ViewBinding = when(viewType) {
+        val binding: ViewBinding = when (viewType) {
             R.layout.base_info_item -> BaseInfoItemBinding.inflate(inflater)
             R.layout.detail_info_item -> DetailInfoItemBinding.inflate(inflater)
             else -> throw IllegalArgumentException("Wrong type of view")
         }
 
-        return ViewHolder(binding, viewType)
+        val holder = ViewHolder(binding)
+        holder.itemView.setOnClickListener {
+            Snackbar.make(it, holder.getHeader(), Snackbar.LENGTH_SHORT).show()
+        }
+
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -34,12 +34,12 @@ class InfoItemAdapter(private val cardsList: List<BaseInfoItem>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var baseInfoItem = cardsList[position]
+        val baseInfoItem = cardsList[position]
 
         holder.bind(baseInfoItem)
     }
 
-    class ViewHolder(val binding: ViewBinding, itemViewType: Int) :
+    class ViewHolder(private val binding: ViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: BaseInfoItem) {
             when (itemViewType) {
@@ -50,14 +50,14 @@ class InfoItemAdapter(private val cardsList: List<BaseInfoItem>) :
                     bindingBase.imageBase.setImageResource(item.idImage)
 
                     if (item is DetailInfoItem) {
-                        val itemDetail = (item as DetailInfoItem)
-                        bindingBase.infoTextViewBase.text = itemDetail.info
-                        if (itemDetail.attention) {
+                        bindingBase.infoTextViewBase.text = item.info
+                        if (item.attention) {
                             bindingBase.infoTextViewBase.setTextColor(Color.rgb(255, 0, 0))
                         }
                     } else {
-                        bindingBase.infoTextViewBase.width = 0
-                        bindingBase.infoTextViewBase.height = 0
+                        // значит нужна корректировка view (сокрытие поля infoTextView и выравнивание поля headerTextView)
+                        bindingBase.infoTextViewBase.layoutParams =
+                            RelativeLayout.LayoutParams(0, 0)
                     }
                 }
                 R.layout.detail_info_item -> {
@@ -73,13 +73,19 @@ class InfoItemAdapter(private val cardsList: List<BaseInfoItem>) :
                 }
             }
         }
+
+        fun getHeader(): String {
+            return if (binding is BaseInfoItemBinding) binding.headerTextViewBase.text as String else {
+                (binding as DetailInfoItemBinding).headerTextViewDetail.text as String
+            }
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
         val card = cardsList[position]
 
         // если объект без информации, то это base
-        if (!(card is DetailInfoItem)) {
+        if (card !is DetailInfoItem) {
             return R.layout.base_info_item
         }
 
@@ -93,11 +99,11 @@ class InfoItemAdapter(private val cardsList: List<BaseInfoItem>) :
             }
 
             // иначе если у него есть пара, то это так же detail
-            if (cardsList[position + 1] is DetailInfoItem) {
-                return R.layout.detail_info_item
+            return if (cardsList[position + 1] is DetailInfoItem) {
+                R.layout.detail_info_item
             } else {
                 // иначе - это base
-                return R.layout.base_info_item
+                R.layout.base_info_item
             }
         }
     }

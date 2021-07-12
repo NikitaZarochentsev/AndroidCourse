@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson_4.databinding.ActivityMainBinding
-import java.util.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
@@ -55,8 +54,8 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.addItemDecoration(CharacterItemDecoration(24))
     }
 
-    public class CharacterItemDecoration(val offset : Int) : RecyclerView.ItemDecoration() {
-        override public fun getItemOffsets(
+    class CharacterItemDecoration(private val offset: Int) : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(
             outRect: Rect,
             view: View,
             parent: RecyclerView,
@@ -138,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         for (i in 0 until headers.size) {
-            if (info.get(i) != "") {
+            if (info[i] != "") {
                 data.add(DetailInfoItem(headers[i], info[i], images[i], attentions[i]))
             } else {
                 data.add(BaseInfoItem(headers[i], images[i]))
