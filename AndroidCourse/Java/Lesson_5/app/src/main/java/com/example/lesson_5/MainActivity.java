@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import java.text.SimpleDateFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button button = findViewById(R.id.buttonToAct4Main);
-        button.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, Activity4.class)));
+
+        // заранее создадим Intent
+        Intent intent = new Intent(MainActivity.this, Activity4.class);
+        intent.putExtra("time", System.currentTimeMillis());
+
+        button.setOnClickListener(view -> startActivity(intent));
     }
 }
