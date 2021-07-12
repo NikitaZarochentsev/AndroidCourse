@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Activity4">
 
-    <Button
-        android:id="@+id/buttonToAct4Main"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="6dp"
-        android:text="@string/to_act4_button_main" />
+        android:text="@string/time_default_textView_act4" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
