@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Lesson_5</string>
 
-    <string name="to_act4_button_main">go to 4</string>
+    <string name="to_act4_button_act1">go to 4</string>
+    <string name="to_act2_button_act1">go to 2</string>
+
+    <string name="to_act3_button_act2">go to 3</string>
+
+    <string name="to_act1_button_act3">go to 1</string>
 
     <string name="time_default_textView_act4">time</string>
     <string name="to_act4_again_button_act4">go to 4 again</string>
