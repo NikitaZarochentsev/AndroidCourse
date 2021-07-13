@@ -4,4 +4,5 @@
     <string name="to_act4_button_main">go to 4</string>
 
     <string name="time_default_textView_act4">time</string>
+    <string name="to_act4_again_button_act4">go to 4 again</string>
 </resources>
